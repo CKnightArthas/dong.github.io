@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>测试项目</title>
+    <meta charset="utf-8">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Open+Sans" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Mozilla 酷毙了</h1>
+<img src="images/time.png" alt="time">
+<p>Mozilla是一个全球社区，这里聚集着来自五湖四海的</p>
+<ul>
+    <li>技术人员</li>
+    <li>思考者</li>
+    <li>建造者</li>
+</ul>
+<p class = "mycss" >我们致力于让Intent有活力。</p>
+<p></p>
+<p>为了我们的目标，请参阅
+    <a href="https://www.mozilla.org/zh-CN/about/manifesto/">Mozia宣言</a></p>
+<button>切换用户</button>
+<script src="scripts/main.js" defer></script>
+<script>
+    let myButton = document.querySelector('button');
+    let myHeading = document.querySelector('h1');
+    function setUserName() {
+       let myName = prompt('输入用户名');
+       if (!myName || myName === null) {
+           setUserName();
+       }
+       localStorage.setItem('name', myName);
+       myHeading.textContent = 'Mozilla 酷毙了，' + myName;
+    }
+    if (!localStorage.getItem('name')) {
+       setUserName();
+    } else {
+       let myName = localStorage.getItem('name');
+       myHeading.textContent = 'Mozilla 酷毙了，' + myName;
+    }
+    myButton.onclick = setUserName;
+</script>
+</body>
+
+
+</html>
